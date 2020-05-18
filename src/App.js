@@ -3,9 +3,8 @@ import './App.css';
 import HeaderBlock from './components/HeaderBlock';
 import Header from './components/Header';
 import Paragraph from './components/Paragraph';
-import { ReactComponent as ReactLogo } from './logo.svg';
+import { ReactComponent as Logo } from './logo.svg';
 import Card from './components/Card';
-import Info from './components/Info';
 
 const wordsList = [
   {
@@ -52,6 +51,10 @@ const wordsList = [
       eng: 'leave',
       rus: 'покидать'
   },
+  {
+      eng: 'act',
+      rus: 'действовать'
+  }
 ];
 
 
@@ -66,29 +69,23 @@ const App = () => {
         Используйте карточки для запоминания и пополняйте активный словарный запас
         </Paragraph>
       </HeaderBlock>
-      <Info
-        title = 'О проекте'
-        text = 'Данный проект написан на React в рамках React-ивного марафона. Чуть позже этот блок и блок ниже станут выглядеть лучше и здесь будет написано что-то более полезное, но пока у меня нет фантазии.'
-      />
-      <div>
-        {
-          wordsList.map(({eng, rus}, index) => (
-          <Card key={index} eng={eng} rus={rus}/>
-          ))
-        }
-      </div>
-      <Info
-        title = 'Автор проекта'
-        text = 'Кострикин Александр'
-      />
       <HeaderBlock hideBackground>
+        <div>
+          {
+            wordsList.map(({eng, rus}, index) => (
+            <Card key={index} eng={eng} rus={rus}/>
+            ))
+          }
+        </div>
+      </HeaderBlock>
+      <HeaderBlock>
         <Header>
-          Еще один заголовок
+          Это просто!
         </Header>
         <Paragraph>
-          Ну здорово же!
+          Начните прямо сейчас
         </Paragraph>
-        <ReactLogo />
+        <Logo />
       </HeaderBlock>
     </React.Fragment>
   );
